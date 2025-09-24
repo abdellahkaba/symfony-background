@@ -7,14 +7,11 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
-class HomeController extends AbstractController {
-
+class HomeController extends AbstractController
+{
     #[Route('/', name: 'home')]
-
-    function index (Request $request): Response {
-
-        dd($request);
-        return new Response('Hello, Symfony!' . $request->query->get('name', 'Inconnu'));
-
+    public function index(Request $request): Response
+    {
+        return $this->render('home/index.html.twig');
     }
 }
